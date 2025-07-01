@@ -79,7 +79,7 @@ optiflowzChat.innerHTML = `
 </div>
 `;
 document.body.appendChild(optiflowzChat);
-document.body.innerHTML += `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/OptiFlowz/DrMilosBjelovicChat@1.0.1/style.css">`;
+document.body.innerHTML += `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/OptiFlowz/DrMilosBjelovicChat@1.0.2/style.css">`;
 
 // Uspostavljanje konekcije sa soket serverom
 socket.once("connect", async () => {
@@ -311,12 +311,14 @@ function addQuestionsToChat(){
     let newQuestionHolder = document.createElement("div");
     newQuestionHolder.classList.add("questions");
     chatMessages.appendChild(newQuestionHolder);
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
         let newQuestion = document.createElement("div");
         if(i == 0){
             newQuestion.innerHTML = "Želim da zakažem pregled";
+        }else if(i == 1){
+            newQuestion.innerHTML = "Želim da zakažem gastroskopiju";
         }else{
-            newQuestion.innerHTML = "Ko je prof. dr Miloš Bjelović?";
+            newQuestion.innerHTML = "Razgovor sa dokotorom";
         }
         newQuestion.addEventListener("click", () => {
             textarea.value = newQuestion.innerHTML;
